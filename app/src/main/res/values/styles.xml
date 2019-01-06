@@ -17,9 +17,21 @@
         <item name="android:backgroundTint">@color/colorloginButtonBackground</item>
 
     </style>
-
+<style name="background" parent="Base.TextAppearance.AppCompat">
+    <item name="android:buttonCornerRadius">@dimen/corner_radius</item>
+</style>
+    <style name="TextAppearance" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textColor">@color/errorcolor</item>
+        <item name="android:textSize">@dimen/font_Size</item>
+    </style>
+    <style name="Theme" parent="AppTheme.AppBarOverlay">
+        <item name="android:color">@drawable/gradient3</item>
+    </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="RadioButtonChecked">
+        <item name= "colorAccent">@color/colorPrimary</item>
+    </style>
 
 </resources>

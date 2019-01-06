@@ -30,6 +30,15 @@ public class SignUpPage extends AppCompatActivity{
                 startActivity(intent);
             }
         });
+        Button Login = (Button) findViewById(R.id.Login_btn);
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(SignUpPage.this,MainLogin.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

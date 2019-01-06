@@ -17,11 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linear1);
+//        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linear1);
         animation = AnimationUtils.loadAnimation(this,R.anim.uptodown);
-        linearLayout.setAnimation(animation);
+//        linearLayout.setAnimation(animation);
 
 
 
@@ -47,18 +45,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-
-
-
     }
-
-
-
-
     }
-
-
-
-
-

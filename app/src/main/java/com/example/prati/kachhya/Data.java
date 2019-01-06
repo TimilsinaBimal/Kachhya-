@@ -2,105 +2,78 @@ package com.example.prati.kachhya;
 
 public class Data {
 
-   private String std_id, phoneNumber;
-    private String userName, emailAdd, passswd, department,semester;
-    private String day, month, year, gender,dobyear;
+    private String  fname, lname, phoneNumber, email, password, depart, semester, year, dobday, dobmonth, dobyear,gender;
 
-
-    public void setStd_id(String std_id) {
-        this.std_id = std_id;
+    public void setFname(String fname){
+        this.fname= fname;
     }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getFname(){
+        return fname;
     }
-
-    public String getPhoneNumber() {
+    public void setLname(String lname){
+        this.lname=lname;
+    }
+    public String getLname(){
+        return lname;
+    }
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber=phoneNumber;
+    }
+    public String getPhoneNumber(){
         return phoneNumber;
     }
-
-    public String getStd_id() {
-        return std_id;
+    public void setEmail(String email){
+        this.email=email;
     }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String getEmail(){
+        return email;
     }
-
-    public String getUserName() {
-        return userName;
+    public void setPassword(String password){
+        this.password=password;
     }
-
-
-    public void setEmailAdd(String emailAdd) {
-        this.emailAdd = emailAdd;
+    public String getPassword(){
+        return password;
     }
-
-    public String getEmailAdd() {
-        return emailAdd;
+    public void setDepart(String depart){
+        this.depart=depart;
     }
-
-    public void setPassswd(String passswd) {
-        this.passswd = passswd;
+    public String getDepart(){
+        return depart;
     }
-
-    public String getPassswd() {
-        return passswd;
+    public void setSemester(String semester){
+        this.semester=semester;
     }
-
-    public void setDay(String day) {
-        this.day = day;
+    public String getSemester(){
+        return semester;
     }
-
-    public String getDay() {
-        return day;
+    public void setYear(String year){
+        this.year=year;
     }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public String getMonth() {
-        return month;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getYear() {
+    public String getYear(){
         return year;
     }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setDobday(String dobday){
+        this.dobday=dobday;
     }
-
-    public String getGender() {
-        return gender;
+    public String getDobday(){
+        return dobday;
     }
-
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDobmonth(String dobmonth){
+        this.dobmonth=dobmonth;
     }
-
-    public String getDepartment() {
-        return department;
+    public String getDobmonth(){
+        return dobmonth;
     }
-
-    public void setDobyear(String dobyear) {
-        this.dobyear = dobyear;
+    public void setDobyear(String dobyear){
+        this.dobyear=dobyear;
     }
-
-    public String getDobyear() {
+    public String getDobyear(){
         return dobyear;
     }
-
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public void setGender(String gender){
+        this.gender=gender;
     }
-
-    public String getSemester() {
-        return semester;
+    public String getGender() {
+        return gender;
     }
 }

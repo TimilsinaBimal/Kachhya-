@@ -1,110 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/android4"
-    >
+<ScrollView
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+                    android:id="@+id/linearLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:background="@drawable/gradient"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/circle"
+                        android:padding="10dp"
+                        android:src="@drawable/img_register"
+                        android:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="TEACHER REGISTER"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/imageView1"-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:layout_marginTop="-32dp"-->
+                    <!--android:rotation="45"-->
+                    <!--android:src="@drawable/square" />-->
 
 
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="289dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.017" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
 
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="290dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Department"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
+            android:layout_marginTop="20dp">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:id="@+id/txtFname"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:hint="First Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/txtLname"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:hint="Last Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/txtdepart"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Department"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textView5"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Select Gender:" />
+        <RadioGroup android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="8dp">
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:textColorLink="#ff000000"
+                android:id="@+id/TgendMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Male"
+                android:shadowColor="#ff000000" />
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:id="@+id/TgendFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:id="@+id/TgendOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+        </RadioGroup>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:id="@+id/txtEmail"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Email Address" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            >
 
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="287dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txtPhone"
+                android:layout_width="320.0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/edittextstyle"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textColor="#ff000000" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
 
-    <EditText
-        android:id="@+id/editText10"
-        android:layout_width="289dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.452" />
+            app:passwordToggleEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/txtPass1"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
 
-    <EditText
-        android:id="@+id/editText11"
-        android:layout_width="290dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601" />
-
-    <Button
-        android:id="@+id/nxtBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
-</android.support.constraint.ConstraintLayout>
+            app:passwordToggleEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/txtPass2"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/registerBtn"
+            android:background="@drawable/buttonstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="CREATE ACCOUNT"
+            android:onClick="OnClickTeacherSignUp"
+            android:textAlignment="center" />
+    </LinearLayout>
+</ScrollView>

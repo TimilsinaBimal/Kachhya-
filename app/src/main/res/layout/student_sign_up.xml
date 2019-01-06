@@ -1,269 +1,312 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/android4">
-
+<ScrollView
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <android.support.design.widget.AppBarLayout
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:id="@+id/appBarLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
+            android:id="@+id/linearLayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient"
+            android:gravity="center"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="302dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:hint="Name"
-                android:inputType="textPersonName"
-                android:textColorLink="@color/colorAccent" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/circle"
+                android:padding="10dp"
+                android:src="@drawable/img_register"
+                android:tint="@color/white" />
 
-            <EditText
-                android:id="@+id/department"
-                android:layout_width="300dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="STUDENT REGISTER"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView1"-->
+            <!--android:layout_width="20dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="-33dp"-->
+            <!--android:rotation="45"-->
+            <!--android:src="@drawable/square" />-->
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+           >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/fname"
+                android:textColorHighlight="@color/colorPrimary"
+                android:textColorLink="@color/colorPrimary"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="First Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+           >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/lname"
+                android:textColorLink="@color/colorPrimary"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Last Name"
+                android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="30dp"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/department"
+                android:textColorLink="@color/colorPrimary"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:hint="Department"
                 android:inputType="textPersonName" />
-
+        </android.support.design.widget.TextInputLayout>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/year"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Select year" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/semester"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Semester" />
-
-        <EditText
-            android:id="@+id/email"
+            android:textSize="20.0sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textVie"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:ems="10"
-            android:hint="Enter the email"
-            android:inputType="textEmailAddress" />
-
-            <EditText
-                android:id="@+id/password1"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/name"
-                android:layout_alignEnd="@+id/email"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="1dp"
-                android:layout_marginBottom="0dp"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword" />
-
-            <EditText
-                android:id="@+id/password2"
-                android:layout_width="298dp"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/email"
-                android:layout_alignEnd="@+id/password1"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:hint="Confirm Password"
-                android:inputType="textPassword" />
-
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="73dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="DOB"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="18sp" />
-
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Level:" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/dobdate"
-                android:layout_width="72dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Day" />
-
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:textColor="#ff000000"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/year"
+            android:background="@drawable/edittextstyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="Select year" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/dobmonth"
-                android:layout_width="93dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Month" />
-
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:textColor="#ff000000"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/semester"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:hint="Semester" />
+        <TextView
+            android:textSize="20.0sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textView4"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Date of Birth:" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
-            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
-                android:id="@+id/dobyear"
-                android:layout_width="86dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:hint="Year" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toStartOf="@+id/semester"
-                android:text="Select Gender"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <RadioGroup
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dobdate"
+            android:background="@drawable/edittextstyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Day" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dobmonth"
+            android:background="@drawable/spinner_background"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Month" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/dobyear"
+            android:background="@drawable/edittextstyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Year" />
+        <TextView
+            android:textSize="20.0sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/textView5"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Select Gender:" />
+        <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/semester"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp">
-
-                <RadioButton
-                    android:id="@+id/gendMale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"
-                    android:outlineSpotShadowColor="#000000"
-                    android:shadowColor="#000000"
-                    android:text="Male"
-                    android:textColorLink="#000000" />
-
-                <RadioButton
-                    android:id="@+id/gendOthers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:outlineSpotShadowColor="#000000"
-                    android:text="Others" />
-
-                <RadioButton
-                    android:id="@+id/gendFemale"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:outlineSpotShadowColor="#000000"
-                    android:text="Female" />
-            </RadioGroup>
-
-            <EditText
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="8dp">
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:textColorLink="#ff000000"
+                android:id="@+id/gendMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Male"
+                android:shadowColor="#ff000000" />
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:id="@+id/gendFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+            <RadioButton
+                android:theme="@style/RadioButtonChecked"
+                android:id="@+id/gendOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+        </RadioGroup>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+           >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/email"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:layout_gravity="center_horizontal"
                 android:id="@+id/phnNumber"
-                android:layout_width="291dp"
-                android:layout_height="49dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:hint="Phone Number"
                 android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true"
+            >
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/password1"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true">
+            <android.support.design.widget.TextInputEditText
+                android:textColor="#ff000000"
+                android:id="@+id/password2"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edittextstyle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <Button android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/submitBtn"
+            android:background="@drawable/buttonstyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="CREATE ACCOUNT"
+            android:onClick="OnClickStudentSignUp" />
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="57dp">
-
-                <Button
-                    android:id="@+id/submitBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Submit"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-        </LinearLayout>
-
-
+    </LinearLayout>
 </ScrollView>
