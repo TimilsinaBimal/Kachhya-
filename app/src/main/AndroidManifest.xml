@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:label="Kachhya">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,52 +20,61 @@
         </activity>
         <activity
             android:name=".MainLogin"
-            android:label="Login" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAINLOGIN" />
+            android:label="Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAINLOGIN" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".SignUpPage"
-            android:label="Sign Up" >
-        <intent-filter>
-            <action android:name="android.intent.action.SIGNUPPAGE" />
+            android:label="Sign Up">
+            <intent-filter>
+                <action android:name="android.intent.action.SIGNUPPAGE" />
 
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".StudentSignUP"
-            android:label="Student Sign Up"
-            >
-        <intent-filter>
-            <action android:name="android.intent.action.STUDENTSIGNUP" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+            android:label="Student Sign Up">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTSIGNUP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".TeacherSignUp"
             android:label="Teacher Sign Up">
-        <intent-filter>
-            <action android:name="android.intent.action.TEACHERSIGNUP" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.TEACHERSIGNUP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
         <activity android:name=".home_page">
             <intent-filter>
                 <action android:name="android.intent.action.HOMEPAGE" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity android:name=".StudentLogin"
+            android:label="Student Login">
+            <intent-filter>
+                <action android:name="android.intent.action.STUDENTLOGIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TeacherLogin"
+            android:label="Teacher Login">
+            <intent-filter>
+                <action android:name="android.intent.action.TEACHERLOGIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
+
 </manifest>

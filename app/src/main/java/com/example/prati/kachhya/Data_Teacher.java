@@ -1,8 +1,8 @@
 package com.example.prati.kachhya;
 
-public class Data {
+public class Data_Teacher {
 
-    private String  fname, lname, phoneNumber, email, password, depart, semester, year, dobday, dobmonth, dobyear,gender;
+    private String  fname, lname, phoneNumber, email, password, depart,gender;
 
     public void setFname(String fname){
         this.fname= fname;
@@ -39,36 +39,6 @@ public class Data {
     }
     public String getDepart(){
         return depart;
-    }
-    public void setSemester(String semester){
-        this.semester=semester;
-    }
-    public String getSemester(){
-        return semester;
-    }
-    public void setYear(String year){
-        this.year=year;
-    }
-    public String getYear(){
-        return year;
-    }
-    public void setDobday(String dobday){
-        this.dobday=dobday;
-    }
-    public String getDobday(){
-        return dobday;
-    }
-    public void setDobmonth(String dobmonth){
-        this.dobmonth=dobmonth;
-    }
-    public String getDobmonth(){
-        return dobmonth;
-    }
-    public void setDobyear(String dobyear){
-        this.dobyear=dobyear;
-    }
-    public String getDobyear(){
-        return dobyear;
     }
     public void setGender(String gender){
         this.gender=gender;

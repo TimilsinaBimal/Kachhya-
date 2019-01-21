@@ -89,25 +89,15 @@
                 android:hint="Last Name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="30dp"
-            app:errorEnabled="true">
 
-            <android.support.design.widget.TextInputEditText
-                android:textColor="#ff000000"
-                android:id="@+id/department"
-                android:textColorLink="@color/colorPrimary"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/edittextstyle"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Department"
-                android:inputType="textPersonName" />
-        </android.support.design.widget.TextInputLayout>
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/depart"
+            android:background="@drawable/edittextstyle"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Department" />
         <TextView
             android:textSize="20.0sp"
             android:textStyle="bold"
@@ -119,9 +109,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:text="Level:" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:textColor="#ff000000"
             android:layout_gravity="center_horizontal"
@@ -131,9 +119,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:hint="Select year" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:textColor="#ff000000"
             android:layout_gravity="center_horizontal"
@@ -153,9 +138,6 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="40dp"
             android:text="Date of Birth:" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_gravity="center_horizontal"
             android:id="@+id/dobdate"
@@ -164,9 +146,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Day" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_gravity="center_horizontal"
             android:id="@+id/dobmonth"
@@ -175,9 +154,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Month" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_gravity="center_horizontal"
             android:id="@+id/dobyear"

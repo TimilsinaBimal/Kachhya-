@@ -4,13 +4,18 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
 import java.util.regex.Pattern;
 
 
 public class TeacherSignUp extends AppCompatActivity{
-    Database thelper =new Database(this);
+    Database_Teacher thelper =new Database_Teacher(this);
+    String[] departlistteacher= { "Electrical and Electronics Engineering","Computer Science and Engineering", "Mechanical Engineering","Civil and Geomatics Engineering","Chemical Engineering","Natural Sciences","Environmental Science and Engineering"};
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
                     "(?=.*[0-9])" +         //at least 1 digit
@@ -25,14 +30,17 @@ public class TeacherSignUp extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_sign_up);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(TeacherSignUp.this,android.R.layout.simple_dropdown_item_1line,departlistteacher);
+        MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner) findViewById(R.id.txtdepart);
+        betterSpinner.setAdapter(arrayAdapter);
     }
 
     public void OnClickTeacherSignUp(View v){
         if (v.getId() == R.id.registerBtn){
             TextInputEditText fname = (TextInputEditText)findViewById(R.id.txtFname);
-            TextInputEditText department = (TextInputEditText)findViewById(R.id.txtdepart);
             TextInputEditText lname = (TextInputEditText) findViewById(R.id.txtLname);
             TextInputEditText email = (TextInputEditText)findViewById(R.id.txtEmail);
+            MaterialBetterSpinner department = (MaterialBetterSpinner) findViewById(R.id.txtdepart);
             TextInputEditText password1 = (TextInputEditText)findViewById(R.id.txtPass1);
             TextInputEditText password2 = (TextInputEditText)findViewById(R.id.txtPass2);
             RadioButton gendMale =(RadioButton)findViewById(R.id.TgendMale);
@@ -63,22 +71,22 @@ public class TeacherSignUp extends AppCompatActivity{
                 fname.requestFocus();
                 fname.setBackground(getDrawable(R.drawable.background_error));
             }
-            if (lnamestr.isEmpty()) {
+            else if (lnamestr.isEmpty()) {
                 lname.setError(getString(R.string.error_blank));
                 lname.requestFocus();
                 lname.setBackground(getDrawable(R.drawable.background_error));
             }
-            if (departmentstr.isEmpty()) {
+            else if (departmentstr.isEmpty()) {
                 department.setError(getString(R.string.error_blank));
                 department.requestFocus();
                 department.setBackground(getDrawable(R.drawable.background_error));
             }
-            if (gendstr.isEmpty()){
+            else if (gendstr.isEmpty()){
                 gendOthers.setError(getString(R.string.error_blank));
                 gendOthers.requestFocus();
                 gendOthers.setBackground(getDrawable(R.drawable.background_error));
             }
-            if (emailstr.isEmpty()) {
+            else if (emailstr.isEmpty()) {
                 email.setError(getString(R.string.error_blank));
                 email.requestFocus();
                 email.setBackground(getDrawable(R.drawable.background_error));
@@ -91,7 +99,7 @@ public class TeacherSignUp extends AppCompatActivity{
             }
 
 //                Checks if the phone number is valid or not
-            if (phnNumberstr.isEmpty()) {
+            else if (phnNumberstr.isEmpty()) {
                 phnNumber.setError(getString(R.string.error_blank));
                 phnNumber.requestFocus();
                 phnNumber.setBackground(getDrawable(R.drawable.background_error));
@@ -102,7 +110,7 @@ public class TeacherSignUp extends AppCompatActivity{
                 phnNumber.setBackground(getDrawable(R.drawable.background_error));
             }
             //                  Check whether the password is valid or not
-            if (password1str.isEmpty()) {
+            else if (password1str.isEmpty()) {
                 password1.setError(getString(R.string.error_blank));
                 password1.requestFocus();
                 password1.setBackground(getDrawable(R.drawable.background_error));
@@ -112,12 +120,19 @@ public class TeacherSignUp extends AppCompatActivity{
                 password1.requestFocus();
                 password1.setBackground(getDrawable(R.drawable.background_error));
             }
+            else if(password2str.isEmpty()){
+                password2.setError(getString(R.string.error_blank));
+                password2.requestFocus();
+                password2.setBackground(getDrawable(R.drawable.background_error));
+            }
 //               Check whether password and Confirm password field is same or not
             else if (!password1str.equals(password2str)) {
-                Toast.makeText(this, "PASSWORD DO NOT MATCH", Toast.LENGTH_SHORT).show();
+                password2.setError("Password Do not Match");
+                password2.requestFocus();
+                password2.setBackground(getDrawable(R.drawable.background_error));
             }
             else {
-                Data_teacher tdata = new Data_teacher();
+                Data_Teacher tdata = new Data_Teacher();
                 tdata.setFname(fnamestr);
                 tdata.setLname(lnamestr);
                 tdata.setEmail(emailstr);
