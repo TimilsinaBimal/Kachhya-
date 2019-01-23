@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class TeacherLogin extends AppCompatActivity implements View.OnClickListener{
+    private ProgressBar progressBar;
     Button TeacherLogin_btn;
     FirebaseAuth mAuth;
     TextInputEditText tmail,tpass;
@@ -26,6 +28,8 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
         mAuth= FirebaseAuth.getInstance();
         tmail = (TextInputEditText) findViewById(R.id.teacher_email);
         tpass = ( TextInputEditText) findViewById(R.id.teacher_password);
+        progressBar = findViewById(R.id.tloginprogress);
+        progressBar.setVisibility(View.GONE);
         findViewById(R.id.TeacherLogin_btn).setOnClickListener(this);
     }
     private void TeacherLogin(){
@@ -34,7 +38,11 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
         if (temail.isEmpty()) {
             tmail.setError(getString(R.string.error_blank));
             tmail.requestFocus();
-            return;
+        }
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(temail).matches()){
+            tmail.setError("Please Enter a Valid Email Address!");
+            tmail.requestFocus();
+            tmail.setBackground(getDrawable(R.drawable.background_error));
         }
 
         if (tpassword.isEmpty()) {
@@ -42,10 +50,12 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
             tpass.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(temail,tpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    progressBar.setVisibility(View.GONE);
                     finish();
                     Intent intent= new Intent(TeacherLogin.this,home_page.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

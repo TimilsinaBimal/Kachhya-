@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class StudentLogin extends AppCompatActivity implements View.OnClickListener {
+    private ProgressBar progressBar;
     Button StudentLogin_btn;
     FirebaseAuth mAuth;
     TextInputEditText mail, pass;
@@ -26,26 +28,34 @@ public class StudentLogin extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         mail= (TextInputEditText) findViewById(R.id.student_email);
         pass = ( TextInputEditText) findViewById(R.id.student_password);
+        progressBar = findViewById(R.id.sloginprogress);
+        progressBar.setVisibility(View.GONE);
         findViewById(R.id.StudentLogin_btn).setOnClickListener(this);
     }
     private void StudentLogin(){
         String email = mail.getText().toString().toLowerCase();
         String password = pass.getText().toString();
         if (email.isEmpty()) {
-            mail.setError("Email is required");
+            mail.setError(getString(R.string.error_blank));
             mail.requestFocus();
-            return;
+        }
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            mail.setError("Please Enter a Valid Email Address!");
+            mail.requestFocus();
+            mail.setBackground(getDrawable(R.drawable.background_error));
         }
 
         if (password.isEmpty()) {
-            pass.setError("Password is required");
+            pass.setError(getString(R.string.error_blank));
             pass.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    progressBar.setVisibility(View.GONE);
                     finish();
                     Intent intent= new Intent(StudentLogin.this,home_page.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -62,7 +72,7 @@ public class StudentLogin extends AppCompatActivity implements View.OnClickListe
 //        super.onStart();
 //        if (mAuth.getCurrentUser()!= null){
 //            finish();
-//            startActivity(new Intent(this,home_page.class));
+//            startActivity(new Intent(this,MainLogin.class));
 //        }
 //    }
     @Override

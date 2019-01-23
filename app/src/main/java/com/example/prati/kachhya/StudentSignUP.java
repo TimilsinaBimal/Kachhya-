@@ -1,11 +1,13 @@
 package com.example.prati.kachhya;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,7 +23,8 @@ import java.util.regex.Pattern;
 public class StudentSignUP extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
-    TextInputEditText fname, lname,email,password1, password2, phnNumber;
+    private ProgressBar progressBar;
+    TextInputEditText fname, lname,email,password1, password2, phnNumber,regno;
     MaterialBetterSpinner department, year, semester, dobmonth, dobyear, dobdate,gender;
     String[] spinnerList = {"First", "Second", "Third", "Fourth"};
     String[] spinnerList1 = {"First", "Second"};
@@ -45,16 +48,13 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
                     ".{6,}" +               //at least 6 characters
                     "$");
 
-    public StudentSignUP(FirebaseAuth mAuth) {
-        this.mAuth = mAuth;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_sign_up);
         fname = (TextInputEditText) findViewById(R.id.fname);
         lname = (TextInputEditText) findViewById(R.id.lname);
+        regno= (TextInputEditText) findViewById(R.id.regno);
         phnNumber = (TextInputEditText) findViewById(R.id.phnNumber);
         department = (MaterialBetterSpinner) findViewById(R.id.depart);
         email = (TextInputEditText) findViewById(R.id.email);
@@ -66,6 +66,8 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
         dobmonth = (MaterialBetterSpinner) findViewById(R.id.dobmonth);
         dobdate = (MaterialBetterSpinner) findViewById(R.id.dobdate);
         gender= (MaterialBetterSpinner) findViewById(R.id.studentgender);
+        progressBar = findViewById(R.id.ssignupprogress);
+        progressBar.setVisibility(View.GONE);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(StudentSignUP.this,android.R.layout.simple_dropdown_item_1line,spinnerList);
         MaterialBetterSpinner betterSpinner = (MaterialBetterSpinner) findViewById(R.id.year);
         betterSpinner.setAdapter(arrayAdapter);
@@ -100,10 +102,11 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
     private void registerStudent(){
         final String fnamestr = fname.getText().toString();
         final String lnamestr = lname.getText().toString();
+        final String regnostr = regno.getText().toString();
         final String emailstr = email.getText().toString().toLowerCase();
         final String departmentstr = department.getText().toString();
-        final String password1str = password1.getText().toString();
-        final String password2str = password2.getText().toString();
+        String password1str = password1.getText().toString();
+        String password2str = password2.getText().toString();
         final String phnNumberstr = phnNumber.getText().toString();
         final String yearstr = year.getText().toString();
         final String semesterstr = semester.getText().toString();
@@ -122,6 +125,12 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
             lname.setError(getString(R.string.error_blank));
             lname.requestFocus();
             lname.setBackground(getDrawable(R.drawable.background_error));
+            return;
+        }
+        if (regnostr.isEmpty()) {
+            regno.setError(getString(R.string.error_blank));
+            regno.requestFocus();
+            regno.setBackground(getDrawable(R.drawable.background_error));
             return;
         }
         if (departmentstr.isEmpty()) {
@@ -176,11 +185,13 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
             phnNumber.setError(getString(R.string.error_blank));
             phnNumber.requestFocus();
             phnNumber.setBackground(getDrawable(R.drawable.background_error));
+            return;
         }
-        else if (phnNumberstr.length() != 10) {
+        if (phnNumberstr.length() != 10) {
             phnNumber.setError("Enter Valid Phone Number");
             phnNumber.requestFocus();
             phnNumber.setBackground(getDrawable(R.drawable.background_error));
+            return;
         }
 //                  Check whether the password is valid or not
         if (password1str.isEmpty()) {
@@ -188,41 +199,53 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
             password1.requestFocus();
             password1.setBackground(getDrawable(R.drawable.background_error));
         }
-        else if(!PASSWORD_PATTERN.matcher(password1str).matches()){
+        if(!PASSWORD_PATTERN.matcher(password1str).matches()){
             password1.setError("Password Should Contain atleast One Uppercase letter, One Number and minimum 6 digits");
             password1.requestFocus();
             password1.setBackground(getDrawable(R.drawable.background_error));
+            return;
         }
 //               Check whether password and Confirm password field is same or not
 
-        else if(password2str.isEmpty()){
+        if(password2str.isEmpty()){
             password2.setError(getString(R.string.error_blank));
             password2.requestFocus();
             password2.setBackground(getDrawable(R.drawable.background_error));
+            return;
         }
-        else if (!password1str.equals(password2str)) {
+        if (!password1str.equals(password2str)) {
             password2.setError("Password Do not Match");
             password2.requestFocus();
             password2.setBackground(getDrawable(R.drawable.background_error));
             Toast.makeText(this, "PASSWORD DO NOT MATCH", Toast.LENGTH_SHORT).show();
+            return;
         }
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(emailstr,password1str).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
-                    Data_Student student= new Data_Student(fnamestr, lnamestr, phnNumberstr,emailstr, departmentstr,  semesterstr, yearstr, dobyearstr, dobmonthstr, dobdatestr, genderstr);
+                    Data_Student student= new Data_Student(fnamestr, lnamestr,regnostr, phnNumberstr,emailstr, departmentstr,  yearstr, semesterstr, dobdatestr, dobyearstr, dobmonthstr, genderstr);
                     Data_Student student1= new Data_Student();
                     FirebaseDatabase.getInstance().getReference("Students")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+                            progressBar.setVisibility(View.GONE);
                             if(task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                             }
+                            else{
+                                Toast.makeText(getApplicationContext(), "Registration Failed!! Please Check your Internet Connection!!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(StudentSignUP.this,SignUpPage.class));
+                            }
                         }
                     });
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Registration Failed!! Please Check your Internet Connection!!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
