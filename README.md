@@ -1,0 +1,4 @@
+<b>Kachhya- The Classroom App</b><br><br>
+Study all year just to find out that you are not qualified to attend the final examination just because you failed to meet the attendance requirement. How bad would it feel? You are running for the class, and enter a class just to find out it is not actually your class, messed up the routine again? 
+
+These are among the problems students face, which we are hoping to tackle with our Android app ‘Kachhya – The Classroom App’. Our app will be written in JAVA using Android Studio, and will be user-friendly helping both teachers and students maintain records of the class routine, attendance, assignment, schedule tests and so on. We are hoping that the app will be useful for both lectures and students alike to maintain a healthy learning and working environment in the classroom.
