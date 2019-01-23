@@ -98,6 +98,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Department" />
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/studentgender"
+            android:background="@drawable/spinner_background"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Select Gender" />
         <TextView
             android:textSize="20.0sp"
             android:textStyle="bold"
@@ -161,48 +169,9 @@
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="40dp"
             android:hint="Year" />
-        <TextView
-            android:textSize="20.0sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/textView5"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
-            android:text="Select Gender:" />
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="8dp">
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:textColorLink="#ff000000"
-                android:id="@+id/gendMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Male"
-                android:shadowColor="#ff000000" />
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:id="@+id/gendFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female" />
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:id="@+id/gendOthers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Others" />
-        </RadioGroup>
+
         <android.support.design.widget.TextInputLayout
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
@@ -281,8 +250,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
-            android:text="CREATE ACCOUNT"
-            android:onClick="OnClickStudentSignUp" />
+            android:text="CREATE ACCOUNT" />
 
     </LinearLayout>
 </ScrollView>

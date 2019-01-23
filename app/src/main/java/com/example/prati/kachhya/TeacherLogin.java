@@ -2,57 +2,67 @@ package com.example.prati.kachhya;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class TeacherLogin extends AppCompatActivity{
+
+public class TeacherLogin extends AppCompatActivity implements View.OnClickListener{
     Button TeacherLogin_btn;
-    Button TeacherSignupbtn;
-    Database_Teacher Teacher_Data= new Database_Teacher(this);
-    @Override
+    FirebaseAuth mAuth;
+    TextInputEditText tmail,tpass;
+        @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_login);
+        mAuth= FirebaseAuth.getInstance();
+        tmail = (TextInputEditText) findViewById(R.id.teacher_email);
+        tpass = ( TextInputEditText) findViewById(R.id.teacher_password);
+        findViewById(R.id.TeacherLogin_btn).setOnClickListener(this);
     }
-    public void OnClickTeacherLogin(View v){
-        if(v.getId() == R.id.TeacherLogin_btn){
-            TextInputEditText c = (TextInputEditText) findViewById(R.id.teacher_email);
-            TextInputEditText d = ( TextInputEditText) findViewById(R.id.teacher_password);
-            String email = c.getText().toString().toLowerCase();
-            String pass = d.getText().toString();
-            String password= Teacher_Data.searchPass(email);
-            if(email.isEmpty()){
-                c.setError(getString(R.string.error_blank));
-                c.requestFocus();
-                c.setBackground(getDrawable(R.drawable.background_error));
-            }
-            else if(pass.isEmpty()){
-                d.setError(getString(R.string.error_blank));
-                d.requestFocus();
-                d.setBackground(getDrawable(R.drawable.background_error));
-            }
-            else if(pass.equals(password))
-            {
-                Intent intent= new Intent(TeacherLogin.this,home_page.class);
-                startActivity(intent);
-            }
-            else{
-                Toast.makeText(this, "INCORRECT EMAIL OR PASSWORD", Toast.LENGTH_SHORT).show();
-            }
-
+    private void TeacherLogin(){
+        String temail = tmail.getText().toString().toLowerCase();
+        String tpassword = tpass.getText().toString();
+        if (temail.isEmpty()) {
+            tmail.setError(getString(R.string.error_blank));
+            tmail.requestFocus();
+            return;
         }
-        TeacherSignupbtn = (Button)findViewById(R.id.teachersignUpBtn);
-        TeacherSignupbtn.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          Intent intent2= new Intent(TeacherLogin.this,TeacherSignUp.class);
-                                          startActivity(intent2);
-                                      }
-                                  }
-        );
+
+        if (tpassword.isEmpty()) {
+            tpass.setError(getString(R.string.error_blank));
+            tpass.requestFocus();
+            return;
+        }
+        mAuth.signInWithEmailAndPassword(temail,tpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()){
+                    finish();
+                    Intent intent= new Intent(TeacherLogin.this,home_page.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
+    @Override
+    public void onClick(View view){
+        switch (view.getId()) {
+            case R.id.TeacherLogin_btn:
+                TeacherLogin();
+                break;
+        }
+        }
 }

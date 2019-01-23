@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "834145642484",
+    "firebase_url": "https://kachhya-the-classroom-app.firebaseio.com",
+    "project_id": "kachhya-the-classroom-app",
+    "storage_bucket": "kachhya-the-classroom-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834145642484:android:7832b2b9128947ef",
+        "android_client_info": {
+          "package_name": "com.example.prati.kachhya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834145642484-knvh032h9mk24qjncv20o3gpk1ot51qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBENauY4Ypeze12S4UlW7y40N5KGCcp250"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

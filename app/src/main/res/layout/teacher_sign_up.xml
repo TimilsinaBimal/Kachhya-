@@ -71,23 +71,25 @@
                 android:hint="First Name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
-            android:layout_gravity="center_horizontal"
+            style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            app:errorEnabled="true"
-            style="@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+            android:layout_gravity="center_horizontal"
+            app:errorEnabled="true">
+
             <android.support.design.widget.TextInputEditText
-                android:textColor="#ff000000"
                 android:id="@+id/txtLname"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/edittextstyle"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
+                android:background="@drawable/edittextstyle"
                 android:hint="Last Name"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="#ff000000" />
         </android.support.design.widget.TextInputLayout>
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_gravity="center_horizontal"
@@ -97,46 +99,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Department" />
-        <TextView
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:layout_gravity="center_horizontal"
-            android:id="@+id/textView5"
-            android:layout_width="300dp"
+            android:id="@+id/teachergender"
+            android:background="@drawable/spinner_background"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:text="Select Gender:" />
-        <RadioGroup android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="8dp">
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:textColorLink="#ff000000"
-                android:id="@+id/TgendMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Male"
-                android:shadowColor="#ff000000" />
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:id="@+id/TgendFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female" />
-            <RadioButton
-                android:theme="@style/RadioButtonChecked"
-                android:id="@+id/TgendOthers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Others" />
-        </RadioGroup>
+            android:layout_marginBottom="40dp"
+            android:hint="Select Gender" />
         <android.support.design.widget.TextInputLayout
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
@@ -219,7 +190,6 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="CREATE ACCOUNT"
-            android:onClick="OnClickTeacherSignUp"
             android:textAlignment="center" />
     </LinearLayout>
 </ScrollView>
