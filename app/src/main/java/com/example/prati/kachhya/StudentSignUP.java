@@ -1,6 +1,5 @@
 package com.example.prati.kachhya;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -226,7 +225,7 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
-                    Data_Student student= new Data_Student(fnamestr, lnamestr,regnostr, phnNumberstr,emailstr, departmentstr,  yearstr, semesterstr, dobdatestr, dobyearstr, dobmonthstr, genderstr);
+                    Data_Student student= new Data_Student(fnamestr, lnamestr,regnostr, phnNumberstr,emailstr, departmentstr, semesterstr,yearstr, dobdatestr, dobmonthstr,dobyearstr, genderstr);
                     Data_Student student1= new Data_Student();
                     FirebaseDatabase.getInstance().getReference("Students")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -238,8 +237,8 @@ public class StudentSignUP extends AppCompatActivity implements View.OnClickList
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), "Registration Failed!! Please Check your Internet Connection!!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(StudentSignUP.this,SignUpPage.class));
+                                Toast.makeText(getApplicationContext(), "Registration Failed!! Please Check your Internet Connection!!", Toast.LENGTH_LONG).show();
+                                progressBar.setVisibility(View.GONE);
                             }
                         }
                     });
