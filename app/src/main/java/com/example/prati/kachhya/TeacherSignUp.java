@@ -1,5 +1,7 @@
 package com.example.prati.kachhya;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -147,7 +149,10 @@ public class TeacherSignUp extends AppCompatActivity implements View.OnClickList
             password2.setBackground(getDrawable(R.drawable.background_error));
             return;
         }
-        progressBar.setVisibility(View.VISIBLE);
+//        progressBar.setVisibility(View.VISIBLE);
+        final ProgressDialog dialog = new ProgressDialog(TeacherSignUp.this);
+        dialog.setMessage("Registering! Please Wait!!!");
+        dialog.show();
         mAuth.createUserWithEmailAndPassword(emailstr,password2str).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -161,13 +166,24 @@ public class TeacherSignUp extends AppCompatActivity implements View.OnClickList
                         public void onComplete(@NonNull Task<Void> task) {
                             progressBar.setVisibility(View.GONE);
                             if(task.isSuccessful()){
+                                openDialog();
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
                             }
                         }
                     });
                 }
+                else{
+                    Toast.makeText(getApplicationContext(), "Registration Failed!! Please Check your Internet Connection!!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                    dialog.dismiss();
+                }
             }
         });
+    }
+    public void openDialog() {
+        Intent intent= new Intent(TeacherSignUp.this,Dialog.class);
+        startActivity(intent);
     }
     public void onClick(View v){
         switch (v.getId()){

@@ -62,7 +62,8 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Login Failed!! Please Check your Internet Connection!!", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             }
         });
