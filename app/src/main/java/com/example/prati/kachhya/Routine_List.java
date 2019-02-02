@@ -9,15 +9,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class Routine_List {
-    public class ArtistList extends ArrayAdapter<Routine> {
+public class Routine_List extends ArrayAdapter<Routine_Data> {
     private Activity context;
-    List<Routine> Routine;
+    private List<Routine_Data> Routines;
 
-    public Routine_List(Activity context, List<Routine> artists) {
-        super(context, R.layout.routine_list, List<String>Routine);
+    public Routine_List(Activity context, List<Routine_Data>Routines) {
+        super(context, R.layout.routine_list, Routines);
         this.context = context;
-        this.Routine = Routine;
+        this.Routines = Routines;
     }
 
 
@@ -27,76 +26,15 @@ public class Routine_List {
         View listViewItem = inflater.inflate(R.layout.routine_list, null, true);
 
         TextView SubjectName = (TextView) listViewItem.findViewById(R.id.subject);
-        TextView Time = (TextView) listViewItem.findViewById(R.id.subtime);
-        TextView  Day= (TextView)  listViewItem.findViewById(R.id.subday)
+        TextView StartTime = (TextView) listViewItem.findViewById(R.id.substarttime);
+        TextView EndTime= (TextView)listViewItem.findViewById(R.id.subendtime);
+        TextView  Day= (TextView)  listViewItem.findViewById(R.id.subday);
 
-        Routine artist = Routine.get(position);
-        SubjectName.setText(artist.getSubjectName());
-        Time.setText(artist.getStartTime());
-
+        Routine_Data Routine = Routines.get(position);
+        SubjectName.setText(Routine_Data.getSubjectName());
+        Day.setText(Routine_Data.getDay());
+        StartTime.setText(Routine_Data.getStartTime());
+        EndTime.setText(Routine_Data.getEndTime());
         return listViewItem;
     }
-}
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //attaching value event listener
-        databaseArtists.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                //clearing the previous artist list
-                artists.clear();
-
-                //iterating through all the nodes
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
-                    Artist artist = postSnapshot.getValue(Artist.class);
-                    //adding artist to the list
-                    artists.add(artist);
-                }
-
-                //creating adapter
-                ArtistList artistAdapter = new ArtistList(MainActivity.this, artists);
-                //attaching adapter to the listview
-                listViewArtists.setAdapter(artistAdapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //attaching value event listener
-        databaseArtists.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                //clearing the previous artist list
-                artists.clear();
-
-                //iterating through all the nodes
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    //getting artist
-                    Artist artist = postSnapshot.getValue(Artist.class);
-                    //adding artist to the list
-                    artists.add(artist);
-                }
-
-                //creating adapter
-                ArtistList artistAdapter = new ArtistList(MainActivity.this, artists);
-                //attaching adapter to the listview
-                listViewArtists.setAdapter(artistAdapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-}

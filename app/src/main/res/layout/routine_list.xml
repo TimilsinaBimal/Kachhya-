@@ -20,15 +20,25 @@
 	/>
 	<TextView android:layout_width="match_parent"
 	          android:layout_height="match_parent"
-	          android:text="09:00- 11:00"
+	          android:text="09:00"
 	          android:textColor="@color/white"
 	          android:textSize="12sp"
 	          android:layout_marginTop="30dp"
 	          android:padding="5dp"
-	          android:id="@+id/subtime"
+	          android:id="@+id/substarttime"
 	          android:textStyle="bold"
 
 	/>
+	<TextView android:layout_width="match_parent"
+	          android:layout_height="match_parent"
+	          android:text="11:00"
+	          android:textColor="@color/white"
+	          android:textSize="12sp"
+	          android:layout_marginStart="50dp"
+	          android:layout_marginTop="30dp"
+	          android:padding="5dp"
+	          android:id="@+id/subendtime"
+	          android:textStyle="bold"/>
 	<TextView android:layout_width="match_parent"
 	          android:layout_height="match_parent"
 	          android:text="Sunday"

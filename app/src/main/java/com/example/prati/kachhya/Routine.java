@@ -1,27 +1,50 @@
 package com.example.prati.kachhya;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.widget.ListView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
-public class Routine extends AppCompatActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Routine extends AppCompatActivity{
+       ListView ListViewRoutine;
+       DatabaseReference databaseReference;
+       List<Routine_Data>Routinedata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
-        findViewById(R.id.subjectone).setOnClickListener(this);
+            ListViewRoutine= (ListView)findViewById(R.id.routinelist);
+              Routinedata= new ArrayList<>();
+
 
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.subjectone:
-                startActivity(new Intent(Routine.this, Subject.class));
-                break;
-        }
+    protected void onStart() {
+        super.onStart();
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Routinedata.clear();
+                for(DataSnapshot RoutineSnapshot: dataSnapshot.getChildren()){
+                    Routine_Data data= RoutineSnapshot.getValue(Routine_Data.class);
+                    Routinedata.add(data);
+                }
+                Routine_List adapter= new Routine_List(Routine.this,Routinedata);
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }
