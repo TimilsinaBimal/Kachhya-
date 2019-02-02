@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,6 +25,7 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_login);
+        FirebaseApp.initializeApp(TeacherLogin.this);
         mAuth= FirebaseAuth.getInstance();
         tmail = (TextInputEditText) findViewById(R.id.teacher_email);
         tpass = ( TextInputEditText) findViewById(R.id.teacher_password);
@@ -57,7 +58,7 @@ public class TeacherLogin extends AppCompatActivity implements View.OnClickListe
                 if (task.isSuccessful()){
                     progressBar.setVisibility(View.GONE);
                     finish();
-                    Intent intent= new Intent(TeacherLogin.this,home_page.class);
+                    Intent intent= new Intent(TeacherLogin.this, Home_Teacher.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

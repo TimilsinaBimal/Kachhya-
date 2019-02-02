@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Routine_Add"
+		android:orientation="vertical"
+		android:layout_margin="10dp">
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="textPersonName"
+			android:hint="Subject Name"
+			android:layout_gravity="center_horizontal"
+			android:ems="15"
+			android:background="@drawable/edittextstyle"
+			android:layout_margin="5dp"
+			android:id="@+id/subname"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="textPersonName"
+			android:hint="Teacher Name"
+			android:background="@drawable/edittextstyle"
+			android:ems="15"
+			android:id="@+id/name_teacher"
+			android:layout_margin="5dp"
+			android:layout_gravity="center_horizontal"
+	/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:hint="Room No."
+			android:background="@drawable/edittextstyle"
+			android:layout_gravity="center_horizontal"
+			android:ems="15"
+			android:layout_margin="5dp"
+			android:id="@+id/room"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="number"
+			android:hint="Block"
+			android:background="@drawable/edittextstyle"
+			android:layout_gravity="center_horizontal"
+			android:ems="15"
+			android:id="@+id/block"
+			android:layout_margin="5dp"/>
+	<com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+	         android:hint="Day"
+			android:ems="15"
+			android:layout_gravity="center_horizontal"
+			android:layout_margin="5dp"
+			android:id="@+id/subjectday"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="time"
+			android:background="@drawable/edittextstyle"
+			android:ems="15"
+			android:layout_margin="5dp"
+			android:layout_gravity="center_horizontal"
+			android:hint="Start Time"
+			android:id="@+id/start_time"/>
+	<EditText
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:inputType="time"
+			android:ems="15"
+			android:layout_margin="5dp"
+			android:layout_gravity="center_horizontal"
+			android:hint="End Time"
+			android:background="@drawable/edittextstyle"
+			android:id="@+id/end_time"/>
+	<LinearLayout android:layout_width="match_parent"
+	              android:layout_height="wrap_content"
+	              android:orientation="horizontal"
+	>
+		<Button
+				android:text="Save"
+				android:background="@drawable/buttonstyle"
+				android:layout_gravity="center_horizontal"
+				android:textAlignment="center"
+				android:layout_margin="10dp"
+				android:layout_width="134dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/savebutton"
+				android:textColor="@color/white"
+				android:textSize="15sp"
+				android:textAllCaps="false"
+				android:gravity="left"
+		/>
+		<Button
+				android:text="Delete"
+				android:background="@drawable/buttonstyle2"
+				android:layout_gravity="end"
+				android:layout_width="142dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/deletebutton"
+				android:layout_margin="10dp"
+				android:textColor="@color/white"
+				android:textSize="15sp"
+				android:textAllCaps="false"
+		/>
+	</LinearLayout>
+
+</LinearLayout>

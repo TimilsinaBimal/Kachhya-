@@ -1,94 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prati.kachhya">
+          package="com.example.prati.kachhya">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:label="Kachhya">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+			android:allowBackup="true"
+			android:icon="@mipmap/ic_launcher"
+			android:label="@string/app_name"
+			android:roundIcon="@mipmap/ic_launcher_round"
+			android:supportsRtl="true"
+			android:theme="@style/AppTheme">
+		<activity android:name=".Student_Profile">
+		</activity>
+		<activity android:name=".Students">
+		</activity>
+		<activity android:name=".Routine_Add">
+		</activity>
+		<activity android:name=".Assignment_add">
+		</activity>
+		<activity android:name=".Attendance_Detail">
+		</activity>
+		<activity
+				android:name=".MainActivity"
+				android:label="Kachhya">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainLogin"
-            android:label="Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAINLOGIN" />
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".MainLogin"
+				android:label="Login">
+			<intent-filter>
+				<action android:name="android.intent.action.MAINLOGIN"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".SignUpPage"
-            android:label="Sign Up">
-            <intent-filter>
-                <action android:name="android.intent.action.SIGNUPPAGE" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".SignUpPage"
+				android:label="Sign Up">
+			<intent-filter>
+				<action android:name="android.intent.action.SIGNUPPAGE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".StudentSignUP"
-            android:label="Student Sign Up">
-            <intent-filter>
-                <action android:name="android.intent.action.STUDENTSIGNUP" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".StudentSignUP"
+				android:label="Student Sign Up">
+			<intent-filter>
+				<action android:name="android.intent.action.STUDENTSIGNUP"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".TeacherSignUp"
-            android:label="Teacher Sign Up">
-            <intent-filter>
-                <action android:name="android.intent.action.TEACHERSIGNUP" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".TeacherSignUp"
+				android:label="Teacher Sign Up">
+			<intent-filter>
+				<action android:name="android.intent.action.TEACHERSIGNUP"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".home_page">
-            <intent-filter>
-                <action android:name="android.intent.action.HOMEPAGE" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Home_Teacher">
+			<intent-filter>
+				<action android:name="android.intent.action.HOMEPAGE"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".StudentLogin"
-            android:label="Student Login">
-            <intent-filter>
-                <action android:name="android.intent.action.STUDENTLOGIN" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".StudentLogin"
+				android:label="Student Login">
+			<intent-filter>
+				<action android:name="android.intent.action.STUDENTLOGIN"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".TeacherLogin"
-            android:label="Teacher Login">
-            <intent-filter>
-                <action android:name="android.intent.action.TEACHERLOGIN" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".TeacherLogin"
+				android:label="Teacher Login">
+			<intent-filter>
+				<action android:name="android.intent.action.TEACHERLOGIN"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Dialog">
-            <intent-filter>
-                <action android:name="android.intent.action.DIALOG" />
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Dialog">
+			<intent-filter>
+				<action android:name="android.intent.action.DIALOG"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-    </application>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".Calender"
+				android:label="Calender">
+			<intent-filter>
+				<action android:name="android.intent.action.CALENDER"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".Attendance"
+				android:label="Attendance">
+			<intent-filter>
+				<action android:name="android.intent.action.ATTENDANCE"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".Routine"
+				android:label="Routine">
+			<intent-filter>
+				<action android:name="android.intent.action.ROUTINE"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".Assignments"
+				android:label="Assignments">
+			<intent-filter>
+				<action android:name="android.intent.action.ASSIGNMENTS"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Home_Student">
+			<intent-filter>
+				<action android:name="android.intent.action.HOMESTUDENT"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Subject_five">
+			<intent-filter>
+				<action android:name="android.intent.action.SUBJECTFIVE"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Subject_four">
+			<intent-filter>
+				<action android:name="android.intent.action.SUBJECTFOUR"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Subject_three">
+			<intent-filter>
+				<action android:name="android.intent.action.SUBJECTTHREE"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Subject_two">
+			<intent-filter>
+				<action android:name="android.intent.action.SUBJECTTWO"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".Subject">
+			<intent-filter>
+				<action android:name="android.intent.action.SUBJECTONE"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
+	</application>
 
 </manifest>

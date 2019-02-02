@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Subject">
+	<LinearLayout android:layout_width="match_parent"
+	              android:layout_height="150dp"
+	              android:background="@color/subject1"
+	              android:orientation="vertical"
+	              app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+	              app:layout_constraintEnd_toEndOf="parent"
+	              android:id="@+id/linearLayout5">
+		<TextView android:layout_width="match_parent"
+		          android:layout_height="119dp"
+		          android:text="Subject One"
+		          android:padding="10dp"
+		          android:id="@+id/subject_one"
+		          android:layout_margin="20dp"
+		          android:textSize="20sp"
+		          android:textColor="@color/white"
+		          android:textStyle="bold"
+		          android:fontFamily="@font/mm"
+		/>
+
+	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent"
+	              android:layout_height="564dp"
+	              android:orientation="vertical"
+	              android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+	              android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+	              app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+	              app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp">
+
+		<LinearLayout android:layout_width="match_parent"
+		              android:layout_height="wrap_content"
+		              android:orientation="horizontal"
+		              android:padding="20dp"
+		>
+
+			<ImageView android:layout_width="wrap_content"
+			           android:layout_height="wrap_content"
+			           android:src="@drawable/ic_location"/>
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="wrap_content"
+			          android:text="404, 09"
+			          android:textStyle="normal"
+			          android:textColor="#000"
+			          android:textSize="20sp"
+			          android:fontFamily="@font/ml"
+			          android:id="@+id/sub1location"
+			          android:layout_marginStart="20dp"/>
+		</LinearLayout>
+		<LinearLayout android:layout_width="match_parent"
+		              android:layout_height="wrap_content"
+		              android:orientation="horizontal"
+		              android:padding="20dp"
+		>
+
+			<ImageView android:layout_width="wrap_content"
+			           android:layout_height="wrap_content"
+			           android:src="@drawable/ic_teacher"/>
+			<TextView android:layout_width="wrap_content"
+			          android:layout_height="wrap_content"
+			          android:text="Santosh Parajuli"
+			          android:textStyle="normal"
+			          android:id="@+id/sub1teacher"
+			          android:textColor="#000"
+			          android:textSize="20sp"
+			          android:fontFamily="@font/ml"
+			          android:layout_marginStart="20dp"/>
+		</LinearLayout>
+		<TextView android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:background="#666"
+		          android:textSize="0.5sp"
+		          android:layout_margin="20dp"/>
+		<ListView android:layout_width="match_parent"
+		          android:layout_height="wrap_content"
+		          android:divider="#666"
+		          android:dividerHeight="0.5dp"
+		          android:padding="10dp"
+		          android:layout_margin="10dp">
+
+		</ListView>
+	</LinearLayout>
+</android.support.constraint.ConstraintLayout>
