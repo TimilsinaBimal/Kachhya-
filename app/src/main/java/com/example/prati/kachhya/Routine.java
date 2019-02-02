@@ -4,10 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +18,8 @@ public class Routine extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_routine);
             ListViewRoutine= (ListView)findViewById(R.id.routinelist);
-              Routinedata= new ArrayList<>();
-
+            Routinedata= new ArrayList<>();
+            databaseReference= FirebaseDatabase.getInstance().getReference("Routine");
 
     }
 

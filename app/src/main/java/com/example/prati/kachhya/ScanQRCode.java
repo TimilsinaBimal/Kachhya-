@@ -30,7 +30,6 @@ public class ScanQRCode extends AppCompatActivity implements ZXingScannerView.Re
 
         mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
         setContentView(mScannerView);
-
     }
 
     @Override
