@@ -35,5 +35,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.6'
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'me.dm7.barcodescanner:zxing:1.9.8'
 }
 apply plugin: 'com.google.gms.google-services'

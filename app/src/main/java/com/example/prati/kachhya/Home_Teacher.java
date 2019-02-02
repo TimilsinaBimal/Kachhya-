@@ -29,6 +29,7 @@ public class Home_Teacher extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(Home_Teacher.this, Routine_Add.class));
                 break;
             case R.id.scanqr:
+                startActivity(new Intent(Home_Teacher.this, ScanQRCode.class));
                 break;
         }
     }

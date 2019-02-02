@@ -20,12 +20,15 @@ public class MainLogin extends AppCompatActivity implements View.OnClickListener
         switch (view.getId()) {
             case R.id.StudentLogin:
                 startActivity(new Intent(MainLogin.this, StudentLogin.class));
+                finish();
                 break;
             case R.id.TeacherLogin:
                 startActivity(new Intent(MainLogin.this, TeacherLogin.class));
+                finish();
                 break;
             case R.id.Signup_btn:
                 startActivity(new Intent(MainLogin.this, SignUpPage.class));
+                finish();
         }
     }
 }

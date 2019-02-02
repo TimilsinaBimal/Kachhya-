@@ -31,10 +31,10 @@ public class Routine_List extends ArrayAdapter<Routine_Data> {
         TextView  Day= (TextView)  listViewItem.findViewById(R.id.subday);
 
         Routine_Data Routine = Routines.get(position);
-        SubjectName.setText(Routine_Data.getSubjectName());
-        Day.setText(Routine_Data.getDay());
-        StartTime.setText(Routine_Data.getStartTime());
-        EndTime.setText(Routine_Data.getEndTime());
+        SubjectName.setText(Routine.getSubjectName());
+        Day.setText(Routine.getDay());
+        StartTime.setText(Routine.getStartTime());
+        EndTime.setText(Routine.getEndTime());
         return listViewItem;
     }
     }

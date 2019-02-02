@@ -16,25 +16,28 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
     RecyclerView recyclerView;
     Context context;
-    ArrayList<String>items= new ArrayList<>();
-    ArrayList<String>urls= new ArrayList<>();
-    public void update(String name, String url){
+    ArrayList<String> items = new ArrayList<>();
+    ArrayList<String> urls = new ArrayList<>();
+
+    public void update(String name, String url) {
         items.add(name);
         urls.add(url);
         notifyDataSetChanged(); //refresh automatically
     }
-    public AssignmentAdapter(RecyclerView recyclerView,Context context,ArrayList<String> items,ArrayList<String> urls){
-        this.recyclerView= recyclerView;
-        this.context=context;
-        this.items= items;
-        this.urls= urls;
+
+    public AssignmentAdapter(RecyclerView recyclerView, Context context, ArrayList<String> items, ArrayList<String> urls) {
+        this.recyclerView = recyclerView;
+        this.context = context;
+        this.items = items;
+        this.urls = urls;
     }
+
     @NonNull
     @Override
     public AssignmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         //to create view
-        View view = LayoutInflater.from(context).inflate(R.layout.assignment_list_items,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.assignment_list_items, viewGroup, false);
         return new ViewHolder(view);
     }
 
@@ -58,8 +61,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                        int position= recyclerView.getChildAdapterPosition(view);
-                    Intent intent= new Intent();
+                    int position = recyclerView.getChildAdapterPosition(view);
+                    Intent intent = new Intent();
                     intent.setType(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse(urls.get(position)));
                     context.startActivity(intent);
