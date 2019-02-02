@@ -1,55 +1,85 @@
 package com.example.prati.kachhya;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Assignments extends AppCompatActivity {
-    RecyclerView recyclerView;
+   //the listview
+    ListView listView;
+
+    //database reference to get uploads data
+    DatabaseReference mDatabaseReference;
+
+    //list to store uploads data
+    List<Upload> uploadList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assignments);
-        final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
-        databaseReference.addChildEventListener(new ChildEventListener() {
+
+        uploadList = new ArrayList<>();
+        listView = (ListView) findViewById(R.id.listView);
+
+
+        //adding a clicklistener on listview
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    // called for individual items at database reference
-                String filename= dataSnapshot.getKey();
-                String url= dataSnapshot.getValue(String.class);
-                ((AssignmentAdapter)recyclerView.getAdapter()).update(filename,url);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //getting the upload
+                Upload upload = uploadList.get(i);
+
+                //Opening the upload file in browser using the upload url
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(upload.getUrl()));
+                startActivity(intent);
+            }
+        });
+
+
+        //getting the database reference
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
+
+        //retrieving upload data from firebase database
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload upload = postSnapshot.getValue(Upload.class);
+                    uploadList.add(upload);
+                }
+
+                String[] uploads = new String[uploadList.size()];
+
+                for (int i = 0; i < uploads.length; i++) {
+                    uploads[i] = uploadList.get(i).getName();
+                }
+
+                //displaying it to list
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
+                listView.setAdapter(adapter);
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        RecyclerView recyclerView= findViewById(R.id.assignmentlists);
-        recyclerView.setLayoutManager(new LinearLayoutManager(Assignments.this));
-        AssignmentAdapter assignmentadapter = new AssignmentAdapter(recyclerView, Assignments.this,new ArrayList<String>(),new ArrayList<String>());
-        recyclerView.setAdapter(assignmentadapter);
     }
+
+
 }
