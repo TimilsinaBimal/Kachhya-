@@ -6,21 +6,18 @@
 		android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
 		tools:context=".Home_Teacher">
 	<LinearLayout android:layout_width="match_parent"
-	              android:layout_height="135dp"
+	              android:layout_height="210dp"
 	              android:gravity="center_horizontal"
 	              android:orientation="horizontal" app:layout_constraintStart_toStartOf="parent"
-	              android:layout_marginStart="8dp" android:layout_marginTop="8dp"
 	              app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-	              android:layout_marginEnd="8dp" android:id="@+id/linearLayout3" android:layout_marginBottom="8dp"
+	              android:id="@+id/linearLayout3"
 	              app:layout_constraintBottom_toTopOf="@+id/linearLayout4" app:layout_constraintHorizontal_bias="1.0"
 	              app:layout_constraintVertical_bias="0.902">
 		<android.support.v7.widget.CardView
-				android:layout_width="350dp"
-				android:layout_height="110dp"
+				android:layout_width="411dp"
+				android:layout_height="144dp"
 				android:clickable="true"
-				app:cardBackgroundColor="@color/fieldcolor"
-				android:layout_margin="10dp"
-				app:cardCornerRadius="20dp">
+				app:cardBackgroundColor="@color/fieldcolor">
 			<TextView android:layout_width="match_parent"
 			          android:layout_height="wrap_content"
 			          android:id="@+id/teachername"
@@ -94,13 +91,13 @@
 			           android:layout_height="50dp"
 			           android:layout_margin="20dp"
 			            android:clickable="true"
-			            android:id="@+id/seeattendance"
-			           android:src="@drawable/checklist"
+			            android:id="@+id/logoutbtn"
+			           android:src="@drawable/exit"
 			           android:layout_gravity="center_horizontal"
 			/>
 			<TextView android:layout_width="match_parent"
 			          android:layout_height="wrap_content"
-			          android:text="Attendance"
+			          android:text="LogOut"
 			          android:textAlignment="center"
 			          android:layout_gravity="bottom"
 			          android:layout_margin="20dp"

@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.ViewHolder> {
-
     RecyclerView recyclerView;
     Context context;
     ArrayList<String>items= new ArrayList<>();
@@ -40,8 +39,8 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull AssignmentAdapter.ViewHolder holder, int position) {
-        holder.nameofFile.setText(items.get(position));
-
+        String fileName= items.get(position);
+        holder.nameofFile.setText(fileName);
     }
 
     @Override
@@ -51,10 +50,11 @@ public class AssignmentAdapter extends RecyclerView.Adapter<AssignmentAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameofFile;
-
+        View mview;
         public ViewHolder(final View itemView) {
             super(itemView);
             nameofFile = itemView.findViewById(R.id.assignmentsubject);
+            mview=itemView;
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

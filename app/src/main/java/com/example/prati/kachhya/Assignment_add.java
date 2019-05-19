@@ -26,6 +26,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Objects;
+
 public class Assignment_add extends AppCompatActivity {
                 Button selectFile ,upload;
                 TextView notification;
@@ -71,12 +73,12 @@ public class Assignment_add extends AppCompatActivity {
             progressDialog.show();
             final String fileName= System.currentTimeMillis()+".pdf";
             final String fileName1= System.currentTimeMillis()+"";
-            StorageReference storageReference= storage.getReference();
+            StorageReference storageReference= storage.getReference("Assignments");
              storageReference.child("Assignments").child(fileName1).putFile(pdfUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                  @Override
                  public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                     String url = taskSnapshot.getUploadSessionUri().toString();
-                     DatabaseReference reference= database.getReference();
+                     String url = Objects.requireNonNull(taskSnapshot.getUploadSessionUri()).toString();
+                     DatabaseReference reference= database.getReference("Assignments");
                      reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                          @Override
                          public void onComplete(@NonNull Task<Void> task) {
@@ -127,7 +129,7 @@ public class Assignment_add extends AppCompatActivity {
         //cHECK whether user has selected file or not
         if (requestCode==86 && resultCode== RESULT_OK && data!= null ){
              pdfUri= data.getData();
-             notification.setText(data.getData().getLastPathSegment());
+             notification.setText(Objects.requireNonNull(data.getData()).getLastPathSegment());
 
         }
         else{

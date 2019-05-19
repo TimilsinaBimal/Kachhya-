@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Routine extends AppCompatActivity{
-       ListView ListViewRoutine;
+       private ListView ListViewRoutine;
        DatabaseReference databaseReference;
        List<Routine_Data>Routinedata;
     @Override
@@ -20,9 +20,7 @@ public class Routine extends AppCompatActivity{
             ListViewRoutine= (ListView)findViewById(R.id.routinelist);
             Routinedata= new ArrayList<>();
             databaseReference= FirebaseDatabase.getInstance().getReference("Routine");
-
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -35,7 +33,7 @@ public class Routine extends AppCompatActivity{
                     Routinedata.add(data);
                 }
                 Routine_List adapter= new Routine_List(Routine.this,Routinedata);
-
+                  ListViewRoutine.setAdapter(adapter);
             }
 
             @Override

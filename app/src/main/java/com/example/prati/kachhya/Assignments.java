@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.google.firebase.database.*;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Assignments extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -17,14 +19,14 @@ public class Assignments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assignments);
-        final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
+        final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Assignments");
         databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     // called for individual items at database reference
                 String filename= dataSnapshot.getKey();
                 String url= dataSnapshot.getValue(String.class);
-                ((AssignmentAdapter)recyclerView.getAdapter()).update(filename,url);
+                ((AssignmentAdapter) Objects.requireNonNull(recyclerView.getAdapter())).update(filename,url);
             }
 
             @Override

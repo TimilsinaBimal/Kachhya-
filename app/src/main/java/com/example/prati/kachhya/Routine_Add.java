@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 public class Routine_Add extends AppCompatActivity{
-    String[] DayList = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday","Saturday" };
+    String[] DayList = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
      MaterialBetterSpinner Day;
      EditText StartTime , EndTime;
     EditText SubjectName, TeacherName, RoomNo, Block;
